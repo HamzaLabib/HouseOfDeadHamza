@@ -5,17 +5,17 @@ using UnityEngine.AI;
 
 public class EnemyControl : MonoBehaviour
 {
-    public GameObject targetPlayer;
+    Transform targetPlayer;
     NavMeshAgent agent;
     float offset = 2f;
     //public PlayerMovement isAttackTime;
 
-
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
+        targetPlayer = GameObject.Find("Player").transform;
     }
+
 
     // Update is called once per frame
     void Update()
